@@ -1,0 +1,318 @@
+*{
+    /*border: solid 1px black */
+}
+body{
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    background-color: #02005B;
+    color: rgba(255,255,255,0.95);
+    font-size: 15px;
+    line-height: 28px;
+    letter-spacing: 1px;
+    font-family: "微軟正黑體",sans-serif;
+}
+
+/* 複寫區 */
+ul{
+    padding: 0;
+    list-style: none;
+}
+h2{
+    margin: 0;
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+h2::after{
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 8px;
+    background-color: #FF7168;
+    margin-left: 10px;
+}
+h4{
+    margin: 0;
+    margin-top: 40px;
+    opacity: 0.8;
+    font-weight: 400;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+hr{
+    border: none;
+    border-bottom: solid 4px #FF7168;
+    width: 40%;
+    margin-left: 0;
+}
+
+.resume{
+    display: flex;
+    max-width: 950px;
+    border: solid 8px white;
+    padding: 50px;
+    position: relative;
+}
+
+/* 左右區塊的 Flex 比例設定 */
+.left{
+    flex: 5; /* 左區塊佔 5 份空間 */
+}
+.right{
+    flex: 7; /* 右區塊佔 7 份空間 */
+}
+
+/* 左右共用設定：內邊距增加區隔感 */
+.left,.right{
+    padding: 15px;
+}
+
+/* 左區塊細節調整 */
+.left{
+    padding-right: 50px; /* 右側內邊距增加 50px，拉開內容距離 */
+    border-right: solid 1px #FF7168; /* 加上右側橘紅色分隔線 */
+}
+
+/* 右區塊細節調整 */
+.right{
+    padding-left: 50px; /* 左側內邊距增加 50px，與分隔線保持距離 */
+    padding-top: 150px; /* 往下偏移 150px，營造視覺層次感 */
+}
+
+/* 背景裝飾效果 (漸層與圓角邊框設計) */
+.decoration{
+    width: 300px; /* 寬度設定為 300 像素 */
+    height: 140px; /* 高度設定為 140 像素 */
+
+    /* 漸層背景效果：135 度從紅色 (#FF5F5F) 到淡黃色 (#FFFFAE) */
+    background: linear-gradient(135deg,#FF5F5F,#FFFFAE);
+
+    /* 圓角設定：左上與左下圓角為 70px，右邊為直角 */
+    border-radius: 70px 0px 0px 70px;
+
+     /* 絕對定位：根據父元素的相對位置調整 */
+    position: absolute;
+
+     /* 貼齊父元素的右側 */
+    right: 0;
+
+    /* 從父元素頂部向下偏移 50px */
+    top: 50px;
+}
+
+/* 設置履歷項目的樣式 */
+.listExperience>li{
+    display: flex; /* 啟用 Flexbox 排版，將內容水平排列 */
+    margin-bottom: 20px; /* 每個項目之間留 10px 間距，避免擁擠 */
+}
+
+/* 設定第 1 個項目內的子列表邊框顏色 (橘紅色) */
+.listExperience>li:nth-child(1) ul{
+    border-color: #FF7168;
+}
+
+/* 設定第 2 個項目內的子列表邊框顏色 (淡橘色) */
+.listExperience>li:nth-child(2) ul{
+    border-color: #FFA582;
+}
+
+/* 設定第 3 個項目內的子列表邊框顏色 (淺橘色) */
+.listExperience>li:nth-child(3) ul{
+    border-color: #FFB087;
+}
+
+/* 設定第 4 個項目內的子列表邊框顏色 (淡黃色) */
+.listExperience>li:nth-child(4) ul{
+    border-color: #FFDE9E;
+}
+
+/* 通用設定 - 所有子列表的基本樣式 */
+.listExperience li ul{
+    padding-left: 10px; /* 左側內邊距 10px，讓內容與邊框保持距離 */
+    margin-left: 10px; /* 左側縮排 10px，建立層次感 */
+    border-left: solid 4px white; /* 白色左邊框強調層次與區隔 */
+}
+
+/* list skill */
+/* 設定技能列表的基本樣式 */
+.listSkill{
+    display: flex;  /* 使用 Flexbox 排版，讓技能項目橫向排列 */
+    flex-wrap: wrap; /* 超出容器範圍時自動換行 */
+    gap: 30px; /* 增加項目之間的水平和垂直距離 */
+}
+
+/* 設定每個技能項目的樣式 */
+.listSkill li{
+    width: 25%; /* 每個技能項目寬度為容器的 25%，4 個一列 */
+    padding: 5px; /* 內邊距 5px，讓內容保持間距 */
+    margin-bottom: 5px; /* 增加底部間距，讓文字與圓餅圖拉開 */
+    box-sizing: border-box; /* 包含 padding 與 border 計算總寬度，避免溢出 */
+    display: flex; /* 使用 Flexbox 排版 */
+    flex-direction: column; /* 垂直排列內容 */
+    align-items: center; /* 水平置中 */
+    text-align: center; /* 文字置中對齊 */
+}
+
+/* 設定技能圖示 (圓形背景) */
+.circle{
+    width: 50px; /* 圓形寬度 50px */
+    height: 50px; /* 圓形高度 50px */
+    background-color: #FFF; /* 初始背景顏色為白色 */
+    border-radius: 50%; /* 設定為正圓形 */
+    position: relative; /* 設置相對定位，方便內部元素定位 */
+    overflow: hidden; /* 超出圓形範圍的內容隱藏 */
+    background-color: rgba(255,113,104,0.4); /* 使用淡橘紅色背景，增加視覺層次 */
+}
+
+/* 設定圓形內部的裝飾效果 */
+.circle::after{
+    content: ""; /* 加入偽元素作為裝飾 */
+    display: block; /* 讓偽元素成為區塊元素 */
+    background-color: #02005B; /* 深藍色填充 */
+    width: calc(100% - 20px); /* 寬度比外圈小 20px */
+    height: calc(100% - 20px); /* 高度比外圈小 20px */
+    border-radius: 50%; /* 再次形成圓形 */
+    position: relative; /* 使用相對定位 */
+    left: 50%; /* 將元素從容器中心開始計算 */
+    top: 50%;
+    transform: translate(-50%,-50%); /* 完全置中偽元素 */
+}
+
+/* 技能進度條樣式 (切片效果) */
+.p90,.p80,.p270,.p360{
+    width: 50%; /* 寬度為外圈的一半 */
+    height: 50%; /* 高度為外圈的一半 */
+    position: absolute; /* 絕對定位在父元素內部 */
+    left: 50%; /* 從容器的中點開始 */
+    top: 0; /* 從上方開始 */
+    background-color: #FF7168; /* 橘紅色填充，代表技能進度 */
+}
+
+/* 特殊樣式：技能達到 180 度 */
+.p180{
+    top: 50%; /* 從容器的下半部分開始 */
+}
+
+/* 特殊樣式：技能達到 270 度 */
+.p270{
+    width: 100%; /*填滿整個圓形*/
+    height: 50%; /*填滿圓形的下半部分*/
+    position: absolute; /* 絕對定位 */
+    left: 0; /* 從左側開始 */
+    top: 50%; /* 從圓形的中間開始 */
+    background-color: #FF7168; /* 保持橘色填充 */
+}
+
+/* 特殊樣式：技能達到 360 度 */
+
+.p360{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0%; /* 從左上角開始 */
+    top: 0%; /* 從頂端開始 */
+    background-color: #FF7168;
+}
+
+/* list program */
+/* 設定程式技能條樣式 */
+.listProgram .bar{
+    width: 150px; /* 進度條的寬度設為 150px */
+    height: 10px; /* 進度條的高度設為 10px */
+    border: solid 2px #FF7168; /* 使用橘紅色 (#FF7168) 的 2px 邊框 */
+    border-radius: 5px; /* 圓角邊框設為 5px，讓進度條兩端呈現圓滑效果 */
+}
+
+/* 設定程式技能列表項目 */
+.listProgram li{
+    display: flex; /* 使用 Flexbox 排版，使內容橫向排列 */
+    justify-content: space-between; /* 兩端對齊：技能名稱在左，進度條在右 */
+    align-items: center; /* 垂直置中對齊 */
+    padding-top: 10px; /* 每個列表項目上方保留 10px 間距 */
+}
+
+/* 設定進度條填充區塊的基本樣式 */
+.value{
+    height: 100%; /* 填滿父容器的高度 */
+    width: 60%; /* 預設填充寬度為 60% (可根據 class 變化調整) */
+    background-color: #FF7168; /* 填充顏色為橘紅色 (#FF7168) */
+}
+
+/* 設定不同百分比的填充效果 */
+/* 進度條填充 10% */
+.value.p10{
+    width: 10%; /* 填充寬度設定為 10% */
+}
+
+/* 進度條填充 20% */
+.value.p20{
+    width: 20%; /* 填充寬度設定為 20% */
+}
+
+/* 進度條填充 30% */
+.value.p30{
+    width: 30%; /* 填充寬度設定為 30% */
+}
+
+/* 進度條填充 40% */
+.value.p40{
+    width: 40%; /* 填充寬度設定為 40% */
+}
+
+/* 進度條填充 50% */
+.value.p50{
+    width: 50%; /* 填充寬度設定為 50% */
+}
+
+/* 進度條填充 60% */
+.value.p60{
+    width: 60%; /* 填充寬度設定為 50% */
+}
+
+/* 進度條填充 70% */
+.value.p70{
+    width: 70%; /* 填充寬度設定為 70% */
+}
+
+/* 進度條填充 80% */
+.value.p80{
+    width: 80%; /* 填充寬度設定為 80% */
+}
+
+/* 進度條填充 90% */
+.value.p90{
+    width: 90%; /* 填充寬度設定為 90% */
+}
+
+/* 進度條填充 100% */
+.value.p100{
+    width: 100%; /* 填充寬度設定為 100% */
+}
+
+/* 按鈕樣式的基本設定 */
+.btn{
+    border: solid 3px #FF7168; /* 設置橘紅色 (#FF7168) 的 3px 實線邊框 */
+    padding: 5px 20px; /* 上下 5px、左右 20px 的內邊距，增加按鈕的大小與可點擊區域 */
+    margin-right: 10px; /* 按鈕之間保留 10px 的右邊距，讓多個按鈕排列時有間隔 */
+}
+
+/* 填充樣式的按鈕 */
+.fill{
+    background-color: #FF7168; /* 設置背景顏色為橘紅色 (#FF7168) */
+}
+
+.year {
+    display: inline-block;
+    width: 60px; /* 固定寬度，確保對齊 */
+    text-align: right;
+    font-variant-numeric: tabular-nums; /* 讓數字寬度一致 */
+    font-family: 'Noto Sans Mono', monospace; /* 讓數字使用等寬字體 */
+}
+
+.experience-item {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 調整年份與內容之間的間距 */
+}
